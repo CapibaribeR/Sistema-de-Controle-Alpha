@@ -1,0 +1,424 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L apps-rescue:A0515S-2W-apps U2
+U 1 1 613688E2
+P 1600 3700
+F 0 "U2" H 1778 3696 50  0000 L CNN
+F 1 "A0515S-2W" H 1778 3605 50  0000 L CNN
+F 2 "Converter_DCDC:Converter_DCDC_muRata_NMAxxxxSC_THT" H 1600 4050 50  0001 C CNN
+F 3 "" H 1600 4050 50  0001 C CNN
+	1    1600 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 613B1CB8
+P 4600 1900
+F 0 "R3" V 4393 1900 50  0000 C CNN
+F 1 "22k" V 4484 1900 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 4530 1900 50  0001 C CNN
+F 3 "~" H 4600 1900 50  0001 C CNN
+	1    4600 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L apps-rescue:ISO124-apps U7
+U 1 1 61322998
+P 6700 1800
+F 0 "U7" H 6700 2465 50  0000 C CNN
+F 1 "ISO124" H 6700 2374 50  0000 C CNN
+F 2 "ISO124:8" H 6700 2350 50  0001 C CNN
+F 3 "" H 6700 2350 50  0001 C CNN
+	1    6700 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L apps-rescue:Inversor-apps U5
+U 1 1 61314667
+P 3800 3650
+F 0 "U5" H 4068 3696 50  0000 L CNN
+F 1 "Inversor" H 4068 3605 50  0000 L CNN
+F 2 "Connector_Molex:Molex_CLIK-Mate_502382-0370_1x03-1MP_P1.25mm_Vertical" H 3800 3950 50  0001 C CNN
+F 3 "" H 3800 3950 50  0001 C CNN
+	1    3800 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L apps-rescue:A0515S-2W-apps U3
+U 1 1 61369FB1
+P 1600 4900
+F 0 "U3" H 1778 4896 50  0000 L CNN
+F 1 "A0515S-2W" H 1778 4805 50  0000 L CNN
+F 2 "Converter_DCDC:Converter_DCDC_muRata_NMAxxxxSC_THT" H 1600 5250 50  0001 C CNN
+F 3 "" H 1600 5250 50  0001 C CNN
+	1    1600 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 613B1CBE
+P 4600 2400
+F 0 "R4" V 4393 2400 50  0000 C CNN
+F 1 "100k" V 4484 2400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 4530 2400 50  0001 C CNN
+F 3 "~" H 4600 2400 50  0001 C CNN
+	1    4600 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4600 2050 4600 2150
+$Comp
+L Device:R R1
+U 1 1 61704E08
+P 3450 1900
+F 0 "R1" V 3243 1900 50  0000 C CNN
+F 1 "22k" V 3334 1900 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 3380 1900 50  0001 C CNN
+F 3 "~" H 3450 1900 50  0001 C CNN
+	1    3450 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 61704E0E
+P 3450 2400
+F 0 "R2" V 3243 2400 50  0000 C CNN
+F 1 "100k" V 3334 2400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 3380 2400 50  0001 C CNN
+F 3 "~" H 3450 2400 50  0001 C CNN
+	1    3450 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3450 2050 3450 2150
+$Comp
+L apps-rescue:RTY120LVNAX U4
+U 1 1 61709B77
+P 3350 1250
+F 0 "U4" H 3628 1441 50  0000 L CNN
+F 1 "RTY120LVNAX" H 3628 1350 50  0000 L CNN
+F 2 "Connector_Molex:Molex_CLIK-Mate_502382-0370_1x03-1MP_P1.25mm_Vertical" H 3350 1600 50  0001 C CNN
+F 3 "" H 3350 1600 50  0001 C CNN
+	1    3350 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L apps-rescue:RTY120LVNAX U6
+U 1 1 6170A706
+P 4500 1250
+F 0 "U6" H 4778 1441 50  0000 L CNN
+F 1 "RTY120LVNAX" H 4778 1350 50  0000 L CNN
+F 2 "Connector_Molex:Molex_CLIK-Mate_502382-0370_1x03-1MP_P1.25mm_Vertical" H 4500 1600 50  0001 C CNN
+F 3 "" H 4500 1600 50  0001 C CNN
+	1    4500 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 2150 3800 2150
+Connection ~ 3450 2150
+Wire Wire Line
+	3450 2150 3450 2250
+Wire Wire Line
+	4600 2150 4950 2150
+Connection ~ 4600 2150
+Wire Wire Line
+	4600 2150 4600 2250
+Text Label 3800 2150 0    50   ~ 10
+S1_APPS
+Text Label 4950 2150 0    50   ~ 10
+S2_APPS
+$Comp
+L power:GND #PWR04
+U 1 1 6170F8FA
+P 3450 2650
+F 0 "#PWR04" H 3450 2400 50  0001 C CNN
+F 1 "GND" H 3455 2477 50  0000 C CNN
+F 2 "" H 3450 2650 50  0001 C CNN
+F 3 "" H 3450 2650 50  0001 C CNN
+	1    3450 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 61710172
+P 4600 2650
+F 0 "#PWR06" H 4600 2400 50  0001 C CNN
+F 1 "GND" H 4605 2477 50  0000 C CNN
+F 2 "" H 4600 2650 50  0001 C CNN
+F 3 "" H 4600 2650 50  0001 C CNN
+	1    4600 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 2550 4600 2650
+Wire Wire Line
+	3450 2550 3450 2650
+$Comp
+L power:GND #PWR03
+U 1 1 61715EAD
+P 3350 1500
+F 0 "#PWR03" H 3350 1250 50  0001 C CNN
+F 1 "GND" H 3355 1327 50  0000 C CNN
+F 2 "" H 3350 1500 50  0001 C CNN
+F 3 "" H 3350 1500 50  0001 C CNN
+	1    3350 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 6171611B
+P 4500 1500
+F 0 "#PWR05" H 4500 1250 50  0001 C CNN
+F 1 "GND" H 4505 1327 50  0000 C CNN
+F 2 "" H 4500 1500 50  0001 C CNN
+F 3 "" H 4500 1500 50  0001 C CNN
+	1    4500 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 1500 4600 1750
+Wire Wire Line
+	3450 1500 3450 1750
+$Comp
+L power:GND #PWR02
+U 1 1 61711553
+P 1950 1200
+F 0 "#PWR02" H 1950 950 50  0001 C CNN
+F 1 "GND" V 1955 1072 50  0000 R CNN
+F 2 "" H 1950 1200 50  0001 C CNN
+F 3 "" H 1950 1200 50  0001 C CNN
+	1    1950 1200
+	0    -1   -1   0   
+$EndComp
+Text Label 2000 2100 0    50   ~ 10
+S1_APPS
+Text Label 2000 2200 0    50   ~ 10
+S2_APPS
+$Comp
+L apps-rescue:STM32F303K8-apps U1
+U 1 1 6131B573
+P 1450 1850
+F 0 "U1" H 1450 2865 50  0000 C CNN
+F 1 "STM32F303K8" H 1450 2774 50  0000 C CNN
+F 2 "NUCLEO-F303K8:MODULE_NUCLEO-F303K8" H 1450 2750 50  0001 C CNN
+F 3 "" H 1450 2750 50  0001 C CNN
+	1    1450 1850
+	1    0    0    -1  
+$EndComp
+Wire Bus Line
+	450  3000 2600 3000
+Text Notes 1000 750  0    50   ~ 10
+Placa de Desenvolvimento\n       STM32F303K8 \n
+Text Notes 3450 650  0    50   ~ 10
+SENSORES DE POSIÇÃO\n      RTY120LVNAX 
+Text Label 3250 1650 2    50   ~ 10
++5V
+Wire Wire Line
+	3250 1650 3250 1500
+Text Label 4400 1650 2    50   ~ 10
++5V
+Wire Wire Line
+	4400 1500 4400 1650
+Text Label 2000 1400 0    50   ~ 10
++5V
+Wire Bus Line
+	2600 450  2600 3000
+Wire Bus Line
+	2600 3000 4850 3000
+Connection ~ 2600 3000
+Text Label 1350 4700 2    50   ~ 10
++5V_INVERSOR
+Text Label 1350 4800 2    50   ~ 10
+GND_INVERSOR
+Text Label 3500 3450 2    50   ~ 10
++5V_INVERSOR
+Text Label 3500 3850 2    50   ~ 10
+GND_INVERSOR
+Text Label 1350 3500 2    50   ~ 10
++5V
+$Comp
+L power:GND #PWR01
+U 1 1 617312D5
+P 1250 3600
+F 0 "#PWR01" H 1250 3350 50  0001 C CNN
+F 1 "GND" H 1255 3427 50  0000 C CNN
+F 2 "" H 1250 3600 50  0001 C CNN
+F 3 "" H 1250 3600 50  0001 C CNN
+	1    1250 3600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1350 3600 1250 3600
+Text Label 1350 5000 2    50   ~ 10
+-VS2
+Text Label 1350 5200 2    50   ~ 10
++VS2
+Text Label 1350 4000 2    50   ~ 10
++VS1
+Text Label 1350 3800 2    50   ~ 10
+-VS1
+Text Label 2000 1700 0    50   ~ 10
+S_CONTROL
+Wire Wire Line
+	2000 1700 1800 1700
+Wire Wire Line
+	1800 2100 2000 2100
+Wire Wire Line
+	1800 2200 2000 2200
+Wire Wire Line
+	1800 1400 2000 1400
+Wire Wire Line
+	1800 1200 1950 1200
+Text Label 6350 1400 2    50   ~ 10
++VS1
+Text Label 6350 1500 2    50   ~ 10
+-VS1
+Text Label 7050 1800 0    50   ~ 10
+-VS2
+Text Label 7050 1900 0    50   ~ 10
++VS2
+Wire Wire Line
+	7050 1400 7450 1400
+Text Notes 1200 3300 0    50   ~ 10
+CONVERSOR DC-DC\n    LOW VOLTAGE\n    A0515S-2W
+Text Notes 1200 4500 0    50   ~ 10
+CONVERSOR DC-DC\n    HIGH VOLTAGE\n    A0515S-2W
+Wire Bus Line
+	2600 5550 450  5550
+Text Notes 3600 3150 0    50   ~ 10
+INVERSOR\n
+Wire Bus Line
+	2600 4550 4850 4550
+Text Notes 6350 750  0    50   ~ 10
+AMP-OP ISOLADOR\n      ISO124P
+$Comp
+L power:GND #PWR07
+U 1 1 61738F25
+P 7450 1400
+F 0 "#PWR07" H 7450 1150 50  0001 C CNN
+F 1 "GND" H 7455 1227 50  0000 C CNN
+F 2 "" H 7450 1400 50  0001 C CNN
+F 3 "" H 7450 1400 50  0001 C CNN
+	1    7450 1400
+	0    -1   -1   0   
+$EndComp
+Text Label 7050 1500 0    50   ~ 10
+S_CONTROL
+Text Label 6350 1900 2    50   ~ 10
+GND_INVERSOR
+Text Label 6350 1800 2    50   ~ 10
+VOUT
+Text Label 1350 5100 2    50   ~ 10
+GND_CONVERSOR
+Text Label 3500 3750 2    50   ~ 10
+SINAL
+Connection ~ 4850 3000
+Connection ~ 5550 3000
+Wire Bus Line
+	5550 3000 8000 3000
+Wire Bus Line
+	4850 3000 5550 3000
+Wire Bus Line
+	5550 3000 5550 450 
+Text Label 7200 3700 0    50   ~ 10
++VS2
+Text Label 6400 3900 2    50   ~ 10
+VOUT
+$Comp
+L Device:R R5
+U 1 1 61720C94
+P 5950 4050
+F 0 "R5" V 5743 4050 50  0000 C CNN
+F 1 "22k" V 5834 4050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 5880 4050 50  0001 C CNN
+F 3 "~" H 5950 4050 50  0001 C CNN
+	1    5950 4050
+	-1   0    0    1   
+$EndComp
+Text Label 5950 4300 2    50   ~ 10
+GND_CONVERSOR
+Text Label 5950 4450 2    50   ~ 10
+GND_INVERSOR
+Wire Wire Line
+	5950 3800 6400 3800
+Wire Wire Line
+	5950 3800 5950 3700
+Wire Wire Line
+	5950 3900 5950 3800
+Connection ~ 5950 3800
+Wire Wire Line
+	5950 4200 5950 4300
+Wire Wire Line
+	5950 4300 6400 4300
+Wire Wire Line
+	6400 4000 6400 4300
+Wire Wire Line
+	5950 4450 5950 4300
+Connection ~ 5950 4300
+Text Label 6550 3350 0    50   ~ 10
+SINAL
+$Comp
+L apps-rescue:LM358P U8
+U 1 1 6171CCA7
+P 6800 3850
+F 0 "U8" H 6800 4265 50  0000 C CNN
+F 1 "LM358P" H 6800 4174 50  0000 C CNN
+F 2 "LM358P:DIP794W45P254L959H508Q8" H 6800 4150 50  0001 C CNN
+F 3 "" H 6800 4150 50  0001 C CNN
+	1    6800 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 617276F6
+P 6150 3700
+F 0 "R6" V 5943 3700 50  0000 C CNN
+F 1 "100k" V 6034 3700 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 6080 3700 50  0001 C CNN
+F 3 "~" H 6150 3700 50  0001 C CNN
+	1    6150 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6000 3700 5950 3700
+Wire Wire Line
+	6300 3700 6350 3700
+Wire Wire Line
+	6350 3350 6350 3700
+Wire Wire Line
+	6350 3350 6550 3350
+Connection ~ 6350 3700
+Wire Wire Line
+	6350 3700 6400 3700
+Wire Bus Line
+	4850 4550 8000 4550
+Connection ~ 8000 3000
+Wire Bus Line
+	8000 3000 8000 4550
+Text Notes 5800 3250 0    50   ~ 10
+AMPLIFICADOR NÃO INVERSOR\n\n
+Wire Bus Line
+	4850 3000 4850 4550
+Wire Bus Line
+	8000 450  8000 3000
+Connection ~ 2600 4550
+Wire Bus Line
+	2600 4550 2600 5550
+Connection ~ 4850 4550
+Wire Bus Line
+	2600 3000 2600 4550
+$EndSCHEMATC

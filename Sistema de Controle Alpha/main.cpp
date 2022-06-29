@@ -5,7 +5,7 @@
 /* Pinagem */
 #define sensor_apps1  PA_5                          // Sinal de entrada do sensor do apps 1
 #define sensor_apps2  PA_6                          // Sinal de entrada do sensor do apps 2
-#define sensor_bse    PA_0                          // Sinal de entrada do sensor do bse
+#define sensor_bse    PB_1                          // Sinal de entrada do sensor do bse
 #define pino_inversor PA_4                          // Sinal de saída para o inversor
 
 

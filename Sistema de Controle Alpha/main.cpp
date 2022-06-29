@@ -5,7 +5,7 @@
 /* Pinagem */
 #define sensor_apps1  PA_5                          // Sinal de entrada do sensor do apps 1
 #define sensor_apps2  PA_6                          // Sinal de entrada do sensor do apps 2
-#define sensor_bse    PB_1                          // Sinal de entrada do sensor do bse
+#define sensor_bse    PF_4                          // Sinal de entrada do sensor do bse
 #define pino_inversor PA_4                          // Sinal de saída para o inversor
 
 
@@ -28,7 +28,7 @@ Timer tempo_erro;
 
 /* Variaveis */
 // Variaveis para a medicao de falha
-bool  flag_falha;
+bool  flag_falha = 1;
 float inversor;
 float apps1;
 float apps2;
@@ -58,6 +58,7 @@ int main() {
     //Setando as tensoes de referencia para o ADC
     apps1_aq.set_reference_voltage(3.3);
     apps2_aq.set_reference_voltage(3.3);
+    bse_aq.set_reference_voltage(3.3);
 
     while (true) {
         convertevalores();
@@ -70,6 +71,7 @@ int main() {
             case CHECK:
                 tempo_erro.start();
                 if(timer_read_ms(tempo_erro) > 100) {
+                    //printf("%llu \n", timer_read_ms(tempo_erro));
                     estado = FALHA;
                     tempo_erro.stop(); 
                     tempo_erro.reset();
@@ -97,6 +99,7 @@ int main() {
 void convertevalores () {
     apps1 = (apps1_aq.read_voltage() - min_apps1) / (max_apps1 - min_apps1);
     apps2 = (apps2_aq.read_voltage() - min_apps2) / (max_apps2 - min_apps2);
+    bse =   (bse_aq.read_voltage() - min_bse)     / (max_bse - min_bse);
 }
 
 
@@ -155,6 +158,7 @@ void freio_plausibility_check() {
     if((apps1 > 0.25) && (bse > 0.1)) {
         estado = FALHA;
         flag_falha = 0;
+        printf("Dentro da flag de falha");
     } else {
         if(flag_falha == 0 && apps1 < 0.05) {
             estado = TORQUE;

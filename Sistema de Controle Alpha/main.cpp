@@ -5,7 +5,7 @@
 /* Pinagem */
 #define sensor_apps1  PA_5                          // Sinal de entrada do sensor do apps 1
 #define sensor_apps2  PA_6                          // Sinal de entrada do sensor do apps 2
-#define sensor_bse    PB_0                          // Sinal de entrada do sensor do bse
+#define sensor_bse    PA_0                          // Sinal de entrada do sensor do bse
 #define pino_inversor PA_4                          // Sinal de saída para o inversor
 
 
@@ -28,7 +28,7 @@ Timer tempo_erro;
 
 /* Variaveis */
 // Variaveis para a medicao de falha
-bool flag_falha;
+bool  flag_falha;
 float inversor;
 float apps1;
 float apps2;
@@ -60,8 +60,9 @@ int main() {
     apps2_aq.set_reference_voltage(3.3);
 
     while (true) {
-        freio_plausibility_check();
+        convertevalores();
         verifica_falha_sensores();
+        freio_plausibility_check();
 
         /* Maquina de estados */
         switch (estado) {
@@ -102,7 +103,6 @@ void convertevalores () {
 //Funcao responsavel por detectar se ha algum erro das medicoes dos 3 sensores e disparidade dos 2 apps
 void verifica_falha_sensores() {
 
-    convertevalores();
     //printf("Apps1 = %f e Apps2 = %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
     if ( (apps1 > (1.1*apps2)) || (apps1 < (0.9*apps2)) ) {
         printf("Erro de 10 porcento entre os sensores, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
@@ -158,6 +158,7 @@ void freio_plausibility_check() {
     } else {
         if(flag_falha == 0 && apps1 < 0.05) {
             estado = TORQUE;
+            flag_falha = 1;
         }
     }
 }

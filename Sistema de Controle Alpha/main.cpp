@@ -35,12 +35,12 @@ float apps2;
 float bse;
 
 //Declaraveis
-float max_apps1 = 4.5;                              // Sinal máximo do sensor 1 do APPS
-float min_apps1 = 0.5;                              // Sinal minimo do sensor 1 do APPS
-float max_apps2 = 4.5;                              // Sinal máximo do sensor 2 do APPS
-float min_apps2 = 0.5;                              // Sinal minimo do sensor 2 do APPS
-float max_bse = 3.0;                                // Sinal maximo do sensor do BSE
-float min_bse = 1.3;                                // Sinal minimo do sensor do BSE
+float max_apps1 = 3.33;                              // Sinal máximo do sensor 1 do APPS
+float min_apps1 = 0.37;                              // Sinal minimo do sensor 1 do APPS
+float max_apps2 = 3.33;                              // Sinal máximo do sensor 2 do APPS
+float min_apps2 = 0.37;                              // Sinal minimo do sensor 2 do APPS
+float max_bse = 2.93;                                // Sinal maximo do sensor do BSE
+float min_bse = 0.73;                                // Sinal minimo do sensor do BSE
 
 //Maquina de estados
 state estado;                                       // Variavel para o controle da maq de estados
@@ -87,6 +87,7 @@ int main() {
 
             case TORQUE:
                 inversor_envio.write(apps1);
+                //printf("Valor percentual do apps1: %f \n", inversor_envio.read_volt());
                 printf("Enviando %f de tensao \n", inversor_envio.read()*3.3);
                 break;
         }
@@ -158,7 +159,7 @@ void freio_plausibility_check() {
     if((apps1 > 0.25) && (bse > 0.1)) {
         estado = FALHA;
         flag_falha = 0;
-        printf("Dentro da flag de falha");
+        printf("Erro plausibility check \n");
     } else {
         if(flag_falha == 0 && apps1 < 0.05) {
             estado = TORQUE;

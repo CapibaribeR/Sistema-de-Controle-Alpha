@@ -3,10 +3,10 @@
 
 
 /* Pinagem */
-#define sensor_apps1  PA_5                          // Sinal de entrada do sensor do apps 1
-#define sensor_apps2  PA_6                          // Sinal de entrada do sensor do apps 2
-#define sensor_bse    PF_4                          // Sinal de entrada do sensor do bse
-#define pino_inversor PA_4                          // Sinal de saída para o inversor
+#define sensor_apps1  PA_5                           // Sinal de entrada do sensor do apps 1
+#define sensor_apps2  PA_6                           // Sinal de entrada do sensor do apps 2
+#define sensor_bse    PF_4                           // Sinal de entrada do sensor do bse
+#define pino_inversor PA_4                           // Sinal de saída para o inversor
 
 
 /* Adicionar o timer de maneira legível */
@@ -29,6 +29,7 @@ Timer tempo_erro;
 /* Variaveis */
 // Variaveis para a medicao de falha
 bool  flag_plausibility = 1;
+bool flag_check = 0;
 float inversor;
 float apps1;
 float apps2;
@@ -43,7 +44,7 @@ float max_bse = 2.93;                                // Sinal maximo do sensor d
 float min_bse = 0.73;                                // Sinal minimo do sensor do BSE
 
 //Maquina de estados
-state estado;                                       // Variavel para o controle da maq de estados
+state estado = TORQUE;                                        // Variavel para o controle da maq de estados
 
 
 /* Declaracao das funcoes */
@@ -63,9 +64,11 @@ int main() {
     while (true) {
 
         convertevalores();
-        verifica_falha_sensores();
-        freio_plausibility_check();
-
+        if(estado == TORQUE) { 
+            verifica_falha_sensores();
+        } else {
+            freio_plausibility_check();
+        }
         /* Maquina de estados */
         switch (estado) {
 

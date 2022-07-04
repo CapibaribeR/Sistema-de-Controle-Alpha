@@ -28,7 +28,7 @@ Timer tempo_erro;
 
 /* Variaveis */
 // Variaveis para a medicao de falha
-bool  flag_falha = 1;
+bool  flag_plausibility = 1;
 float inversor;
 float apps1;
 float apps2;
@@ -61,6 +61,7 @@ int main() {
     bse_aq.set_reference_voltage(3.3);
 
     while (true) {
+
         convertevalores();
         verifica_falha_sensores();
         freio_plausibility_check();
@@ -71,7 +72,7 @@ int main() {
             case CHECK:
                 tempo_erro.start();
                 if(timer_read_ms(tempo_erro) > 100) {
-                    //printf("%llu \n", timer_read_ms(tempo_erro));
+                    printf("%llu \n", timer_read_ms(tempo_erro));
                     estado = FALHA;
                     tempo_erro.stop(); 
                     tempo_erro.reset();
@@ -158,12 +159,13 @@ void verifica_falha_sensores() {
 void freio_plausibility_check() {
     if((apps1 > 0.25) && (bse > 0.1)) {
         estado = FALHA;
-        flag_falha = 0;
+        flag_plausibility = 0;
         printf("Erro plausibility check \n");
     } else {
-        if(flag_falha == 0 && apps1 < 0.05) {
+        if((flag_plausibility == 0) && (apps1 < 0.05)) {
+            printf("Dentro da FLAG FALHA \n VAM \n FLAG FALA \n FLAG FALHA \n FLAG FALHA");
             estado = TORQUE;
-            flag_falha = 1;
+            flag_plausibility = 1;
         }
     }
 }

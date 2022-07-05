@@ -64,11 +64,11 @@ int main() {
     while (true) {
 
         convertevalores();
-        if(estado == TORQUE) { 
+        //if(estado == TORQUE) { 
             verifica_falha_sensores();
-        } else {
+        //} else {
             freio_plausibility_check();
-        }
+        //}
         /* Maquina de estados */
         switch (estado) {
 

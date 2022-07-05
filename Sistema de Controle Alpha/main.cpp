@@ -65,9 +65,9 @@ int main() {
 
         convertevalores();
         //if(estado == TORQUE) { 
-            verifica_falha_sensores();
+        verifica_falha_sensores();
         //} else {
-            freio_plausibility_check();
+        freio_plausibility_check();
         //}
         /* Maquina de estados */
         switch (estado) {

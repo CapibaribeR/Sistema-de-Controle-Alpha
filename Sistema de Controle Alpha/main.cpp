@@ -64,11 +64,8 @@ int main() {
     while (true) {
 
         convertevalores();
-        //if(estado == TORQUE) { 
         verifica_falha_sensores();
-        //} else {
         freio_plausibility_check();
-        //}
         /* Maquina de estados */
         switch (estado) {
 
@@ -97,7 +94,6 @@ int main() {
         }
     }
 }
-
 
 /* Corpo das funcoes */
 // Funcao responsavel para mapear os valores dos 2 sensores do apps

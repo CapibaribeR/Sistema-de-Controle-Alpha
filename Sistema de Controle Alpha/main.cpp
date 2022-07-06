@@ -29,7 +29,7 @@ Timer tempo_erro;
 /* Variaveis */
 // Variaveis para a medicao de falha
 bool  flag_plausibility = 1;
-bool flag_check = 0;
+bool  flag_falha_sensores = 0;
 float inversor;
 float apps1;
 float apps2;
@@ -44,7 +44,7 @@ float max_bse = 2.93;                                // Sinal maximo do sensor d
 float min_bse = 0.73;                                // Sinal minimo do sensor do BSE
 
 //Maquina de estados
-state estado = TORQUE;                                        // Variavel para o controle da maq de estados
+state estado = TORQUE;                               // Variavel para o controle da maq de estados
 
 
 /* Declaracao das funcoes */
@@ -64,11 +64,8 @@ int main() {
     while (true) {
 
         convertevalores();
-        //if(estado == TORQUE) { 
-            verifica_falha_sensores();
-        //} else {
-            freio_plausibility_check();
-        //}
+        verifica_falha_sensores();
+        freio_plausibility_check();
         /* Maquina de estados */
         switch (estado) {
 
@@ -114,46 +111,67 @@ void verifica_falha_sensores() {
     //printf("Apps1 = %f e Apps2 = %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
     if ( (apps1 > (1.1*apps2)) || (apps1 < (0.9*apps2)) ) {
         printf("Erro de 10 porcento entre os sensores, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
-        estado = CHECK; 
+        //estado = CHECK; 
+        flag_falha_sensores = 1;
     }
     else {
         if ( (apps1_aq.read_voltage() > max_apps1) ) {
             printf("Apps1 acima da escala maxima, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
-            estado = CHECK;
+            //estado = CHECK;
+            flag_falha_sensores = 1;
         }
         else {
             if( (apps2_aq.read_voltage() > max_apps2) ) {
                 printf("Apps2 acima da escala maxima, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
-                estado = CHECK;
+                //estado = CHECK;
+                flag_falha_sensores = 1;
             }
             else {
                 if  (apps1_aq.read_voltage() < min_apps1 ) {
                     printf ("Apps1 abixo da escala minima, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
-                    estado = CHECK;
+                    //estado = CHECK;
+                    flag_falha_sensores = 1;
                 }
                 else {
                     if (apps2_aq.read_voltage() < min_apps2) {
                         printf("Apps2 abaixo da escala minima, %f e %f \n", apps1_aq.read_voltage(), apps2_aq.read_voltage());
-                        estado = CHECK;
+                        //estado = CHECK;
+                        flag_falha_sensores = 1;
                     }
                     else {
                         if(bse_aq.read_voltage() > max_bse) {
                             printf("BSE acima da escala maxima, %f \n", bse_aq.read_voltage());
-                            estado = CHECK;
+                            //estado = CHECK;
+                            flag_falha_sensores = 1;
                         }
                         else {
                             if(bse_aq.read_voltage() < min_bse) {
                                 printf("BSE abaixo da escala minima, %f \n", bse_aq.read_voltage());
-                                estado = CHECK;
+                                //estado = CHECK;
+                                flag_falha_sensores = 1;
                             }
                             else {
                                 estado = TORQUE;
+                                flag_falha_sensores = 0;
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    if(flag_falha_sensores == 1) {
+        tempo_erro.start();
+        if(timer_read_ms(tempo_erro) > 100) {
+            printf("%llu \n", timer_read_ms(tempo_erro));
+            estado = FALHA;
+            tempo_erro.stop(); 
+            tempo_erro.reset();
+            }
+    } else {
+        tempo_erro.stop(); 
+        tempo_erro.reset();
     }
 }
 

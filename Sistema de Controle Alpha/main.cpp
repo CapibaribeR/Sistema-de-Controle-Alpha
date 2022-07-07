@@ -28,7 +28,7 @@ Timer tempo_erro;
 
 /* Variaveis */
 // Variaveis para a medicao de falha
-bool  flag_plausibility = 1;
+bool  flag_plausibility = 0;
 bool  flag_falha_sensores = 0;
 float inversor;
 float apps1;
@@ -178,15 +178,15 @@ void verifica_falha_sensores() {
 
 //Funcao responsavel por identificar se ha presença de pressionamento de freio e pedal simultaneos
 void freio_plausibility_check() {
-    if((apps1 > 0.25) && (bse > 0.1)) {
+    if((apps1 > 0.25) && (bse > 0.1) && (flag_plausibility == 0)) {
         estado = FALHA;
-        flag_plausibility = 0;
+        flag_plausibility = 1;
         printf("Erro plausibility check \n");
     } else {
-        if((flag_plausibility == 0) && (apps1 < 0.05)) {
-            printf("Dentro da FLAG FALHA \n VAM \n FLAG FALA \n FLAG FALHA \n FLAG FALHA");
+        if((flag_plausibility == 1) && (apps1 < 0.05)) {
+            printf("FALHA DE PLAUSIBILIDADE \n");
             estado = TORQUE;
-            flag_plausibility = 1;
+            flag_plausibility = 0;
         }
     }
 }
